@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Form | Annapurna Conch Store</title>
+    <style>
+        body { background: #fdfaf6; font-family: Arial, sans-serif; padding: 20px; }
+        .form-box { max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-left: 10px solid #800020; }
+        input, select, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        .submit-btn { background: #2ed573; color: white; padding: 15px; border: none; width: 100%; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; }
+        label { font-weight: bold; color: #333; }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>অর্ডার নিশ্চিত করুন / Confirm Order</h2>
+        <form action="https://formspree.io/f/xbdvyjjj" method="POST">
+            
+            <label>প্রোডাক্টের নাম / Product Name</label>
+            <input type="text" name="Product_Name" id="prodName" readonly>
+            
+            <label>আপনার নাম / Your Name</label>
+            <input type="text" name="Customer_Name" placeholder="আপনার নাম লিখুন / Enter your name" required>
+            
+            <label>মোবাইল নম্বর / Mobile Number</label>
+            <input type="tel" name="Phone" placeholder="আপনার নম্বর / Your mobile number" required>
+            
+            <label>পেমেন্ট পদ্ধতি / Payment Method</label>
+            <select name="Payment_Method">
+                <option value="COD">ক্যাশ অন ডেলিভারি / Cash on Delivery (COD)</option>
+                <option value="UPI">অনলাইন পেমেন্ট / Online Payment (UPI/QR)</option>
+                <option value="Card">কার্ড পেমেন্ট / Credit or Debit Card</option>
+            </select>
+            
+            <label>পুরো ঠিকানা / Full Address</label>
+            <textarea name="Address" placeholder="আপনার ঠিকানা লিখুন / Enter your full address" required></textarea>
+            
+            <button type="submit" class="submit-btn">অর্ডার সম্পন্ন করুন / Complete Order</button>
+        </form>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('prodName').value = urlParams.get('product');
+    </script>
+</body>
+</html>
